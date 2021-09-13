@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Home</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Notification Icon -->
+        <nav class="navbar navbar">
+            <div class="container">
+                <a class="navbar-brand text-dark top-0 end-0 position-absolute" href="#">
+                    <i class="fa fa-2x fa-bell"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- All Rest of part -->
+        <div class="container d-flex justify-content-center align-items-center flex-column bg-secondary pt-3 mt-5 border border-dark border-4">
+            
+            <!-- User Icon -->
+            <i class="fa fa-4x fa-user-circle"></i>
+
+            <!-- first three buttons -->
+            <div class="container d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-primary m-4 btn-lg">Log Out</button>
+                <button type="button" class="btn btn-primary m-4 btn-lg">Delete</button>
+                <button type="button" class="btn btn-primary m-4 btn-lg">Update</button>
+            </div>
+
+            <h2>Personal Information</h2>
+
+            <!-- Admin's info -->
+            <div class="container">
+
+                <div class="row g-3 align-items-center justify-content-center m-2">
+                    <div class="col-auto">
+                        <label for="name" class="col-form-label">Name:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="Aname" class="form-control" value="Himani Trivedi" readonly>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center justify-content-center m-2">
+                    <div class="col-auto">
+                        <label for="mailid" class="col-form-label">Email:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="email" id="Amail" class="form-control" value="himanitrivedi1874@gmail.com" readonly>
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center justify-content-center m-2">
+                    <div class="col-auto">
+                        <label for="no" class="col-form-label">Phone No:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="tel" id="Aphoneno" class="form-control" value="+91-87564353289" readonly>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Last Three buttons -->
+            <div class="container d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-primary m-4 btn-lg">Services</button>
+                <button type="button" class="btn btn-primary m-4 btn-lg">Location</button>
+                <button type="button" class="btn btn-primary m-4 btn-lg">Eduction</button>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
