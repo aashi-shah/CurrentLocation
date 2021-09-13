@@ -12,3 +12,24 @@
     /* color: rgb(103, 176, 209); */
     color: grey;
 }
+
+.menu{
+    background-color:rgb(103, 176, 209);
+    width: 200px;
+    height: 100%;
+}
+
+.menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0%;
+}
+
+.menu li{
+    padding: 0;
+}
+
+.menu li a {
+    display: block;
+    background-color: #dddddd;
+  }

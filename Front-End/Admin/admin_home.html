@@ -15,78 +15,166 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="admin_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
 <body>
-    <div class="container">
+    <div class="fluid-container">
+
         <!-- Notification Icon -->
-        <nav class="navbar navbar">
-            <div class="container">
-                <a class="navbar-brand text-dark top-0 end-0 position-absolute" href="admin_notification.html">
+        <nav class="navbar navbar-secondary bg-secondary">
+
+            <div class="container-fluid">
+                <button class="color" id="menus" onclick="slider();"><i class="fa fa-2x fa-bars"></i></button>
+
+                <a class="navbar-brand text-dark bg-secondary" href="admin_notification.html">
+                    <button type="button" class="btn btn-secondary btn-lg color">Log Out</button>
+                    <button type="button" class="btn btn-secondary btn-lg color">Delete</button>
                     <i class="fa fa-2x fa-bell"></i>
                 </a>
+
             </div>
+
         </nav>
 
-        <!-- All Rest of part -->
-        <div class="container tcolor d-flex justify-content-center align-items-center flex-column pt-3 mt-5 border border-dark border-4 rounded">
+        <div class="container position-absolute start-0 menu" style="display: none;" id="menu">
+            <ul>
+                <li>
+                    <h3>About</h3>
+                </li>
+                <ul>
+                    <a href="#about" class="navbar-brand color" onclick="update();">
+                        <li>Update Profile</li>
+                    </a>
+                    <a href="#about" class="navbar-brand color" onclick="updatepassword();">
+                        <li>Change Password</li>
+                    </a>
+                </ul>
+                <li>
+                    <h3>Nurse</h3>
+                </li>
+                <ul>
+                    <a href="" class="navbar-brand color">
+                        <li>Location</li>
+                    </a>
+                    <a href="" class="navbar-brand color">
+                        <li>Services</li>
+                    </a>
+                    <a href="" class="navbar-brand color">
+                        <li>Education</li>
+                    </a>
 
-            <!-- User Icon -->
-            <i class="fa fa-4x fa-user-circle"></i>
+                    <a href="home.html" class="navbar-brand color">
+                        <li>
+                            <h3>Home</h3>
+                        </li>
+                    </a>
 
-            <!-- first three buttons -->
-            <div class="container d-flex justify-content-center align-items-center">
-                <button type="button" class="btn btn-secondary m-4 btn-lg color">Log Out</button>
-                <button type="button" class="btn m-4 btn-lg color">Delete</button>
-                <button type="button" class="btn m-4 btn-lg color">Update</button>
-            </div>
-
-            <h2>Personal Information</h2>
-
-            <!-- Admin's info -->
-            <div class="container">
-
-                <div class="row g-3 align-items-center justify-content-center m-2">
-                    <div class="col-auto">
-                        <label for="name" class="col-form-label">Name:</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="Aname" class="form-control" value="Himani Trivedi" readonly>
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center justify-content-center m-2">
-                    <div class="col-auto">
-                        <label for="mailid" class="col-form-label">Email:</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="email" id="Amail" class="form-control" value="himanitrivedi1874@gmail.com"
-                            readonly>
-                    </div>
-                </div>
-
-                <div class="row g-3 align-items-center justify-content-center m-2">
-                    <div class="col-auto">
-                        <label for="no" class="col-form-label">Phone No:</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="tel" id="Aphoneno" class="form-control" value="+91-87564353289" readonly>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Last Three buttons -->
-            <div class="container d-flex justify-content-center align-items-center">
-                <button type="button" class="btn m-4 btn-lg color">Services</button>
-                <button type="button" class="btn m-4 btn-lg color ">Location</button>
-                <button type="button" class="btn m-4 btn-lg color">Eduction</button>
-            </div>
-
+                </ul>
+                <li><button class="btn" onclick="slider();"><i class="fa fa-arrow-up"></i></button></li>
+            </ul>
         </div>
 
-    </div>
+
+        <div id="about"
+            class="container tcolor d-flex justify-content-center align-items-center flex-column pt-3 mt-5 border border-dark border-4 rounded">
+
+            <i class="fa fa-5x fa-user-circle"></i>
+            <h2 id="Ad-name">Admin Name</h2>
+
+            <!-- admininfo for admin details  -->
+            <form action="#" id="admininfo" name="admin_info">
+                <div class="container">
+
+                    <div class="row g-3 align-items-center justify-content-center m-2" id="Adminname"
+                        style="display: none;">
+                        <div class="col-auto">
+                            <label for="name" class="col-form-label">Name:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="Aname" name="A_name" class="form-control" value="Himani">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center justify-content-center m-2">
+                        <div class="col-auto">
+                            <label for="mailid" class="col-form-label">Email:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="email" id="Amail" name="A_mail" class="form-control"
+                                value="himanitrivedi1874@gmail.com" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center justify-content-center m-2">
+                        <div class="col-auto">
+                            <label for="no" class="col-form-label">Phone No:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="tel" id="Aphoneno" name="A_phoneno" class="form-control"
+                                value="+91-87564353289" readonly>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="color btn btn-secondary" style="display: none;" id="adminupdate"
+                    name="admin_info">Update</button>
+
+            </form>
+
+            <!-- adminpassword for changing password -->
+            <form action="#" id="adminpassword" name="admin_password" style="display:none;">
+                <div class="container">
+                    <div class="row g-3 align-items-center justify-content-center m-2">
+                        <div class="col-auto">
+                            <label for="Acurrentpassword" class="col-form-label">Current Password:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="Acurrentpassword" name="A_currentpassword" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center justify-content-center m-2">
+                        <div class="col-auto">
+                            <label for="Anewpassword" class="col-form-label">New Password:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="Anewpassword" name="A_newpassword" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="color btn btn-secondary" id="passwordchange"
+                    name="password_change">Chage</button>
+            </form>
+
+            <!-- Location -->
+            
+        </div>
+
 </body>
+<script>
+
+    function slider() {
+        $('#menu').slideToggle();
+        document.getElementById('about').style.width = "60%";
+    }
+
+    function update() {
+        document.getElementById('adminupdate').style.display = "block";
+        document.getElementById('Amail').removeAttribute('readonly');
+        document.getElementById('Aphoneno').removeAttribute('readonly');
+        document.getElementById('Adminname').style.display = "flex";
+        document.getElementById('Aname').focus();
+        document.getElementById('Ad-name').style.display = "none";
+    }
+
+    function updatepassword() {
+        document.getElementById('admininfo').style.display = "none";
+        document.getElementById('adminpassword').style.display = "block";
+    }
+
+</script>
 
 </html>
