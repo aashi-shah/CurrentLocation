@@ -28,26 +28,28 @@
             <div class="container-fluid">
                 <button class="color" id="menus" onclick="slider();"><i class="fa fa-2x fa-bars"></i></button>
 
-                <a class="navbar-brand text-dark bg-secondary" href="admin_notification.html">
+                <div class="end">
                     <button type="button" class="btn btn-secondary btn-lg color">Log Out</button>
                     <button type="button" class="btn btn-secondary btn-lg color">Delete</button>
-                    <i class="fa fa-2x fa-bell"></i>
-                </a>
 
+                    <a class="navbar-brand text-dark bg-secondary" href="admin_notification.html">
+                        <i class="fa fa-2x fa-bell"></i>
+                    </a>
+
+                    <a class="navbar-brand text-dark bg-secondary" href="admin_home.html">
+                        <i class="fa fa-2x fa-user-circle"></i>
+                    </a>
+                </div>
             </div>
-
         </nav>
 
         <div class="container position-absolute start-0 menu" style="display: none;" id="menu">
             <ul>
-                <li>
-                    <h3>About</h3>
-                </li>
                 <ul>
-                    <a href="#about" class="navbar-brand color" onclick="update();">
+                    <a href="#admininfo" class="navbar-brand color" onclick="update();">
                         <li>Update Profile</li>
                     </a>
-                    <a href="#about" class="navbar-brand color" onclick="updatepassword();">
+                    <a href="#adminpassword" class="navbar-brand color" onclick="updatepassword();">
                         <li>Change Password</li>
                     </a>
                 </ul>
@@ -55,7 +57,7 @@
                     <h3>Nurse</h3>
                 </li>
                 <ul>
-                    <a href="" class="navbar-brand color">
+                    <a href="#location" class="navbar-brand color" onclick="locationpart();">
                         <li>Location</li>
                     </a>
                     <a href="" class="navbar-brand color">
@@ -132,7 +134,8 @@
                             <label for="Acurrentpassword" class="col-form-label">Current Password:</label>
                         </div>
                         <div class="col-auto">
-                            <input type="password" id="Acurrentpassword" name="A_currentpassword" class="form-control">
+                            <input type="password" id="Acurrentpassword" name="A_currentpassword" autocomplete
+                                class="form-control">
                         </div>
                     </div>
 
@@ -141,18 +144,63 @@
                             <label for="Anewpassword" class="col-form-label">New Password:</label>
                         </div>
                         <div class="col-auto">
-                            <input type="password" id="Anewpassword" name="A_newpassword" class="form-control">
+                            <input type="password" id="Anewpassword" name="A_newpassword" autocomplete
+                                class="form-control">
                         </div>
                     </div>
                 </div>
                 <button type="submit" class="color btn btn-secondary" id="passwordchange"
-                    name="password_change">Chage</button>
+                    name="password_change">Change</button>
             </form>
 
-            <!-- Location -->
-            
+            <!-- location -->
+            <div class="container" id="location" style="display: none;">
+
+                    <div class="row g-3 align-items-center justify-content-center m-2">
+                        <div class="col-auto">
+                            <label for="Acurrentpassword" class="col-form-label">Zones:</label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Areas</option>
+                                <option value="1">Maninagar</option>
+                                <option value="2">Pangarapole</option>
+                                <option value="3">Paldi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center justify-content-center m-2">
+                        <div class="col-auto">
+                            <label for="Acurrentpassword" class="col-form-label">Areas:</label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Areas</option>
+                                <option value="1">Maninagar</option>
+                                <option value="2">Pangarapole</option>
+                                <option value="3">Paldi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center justify-content-center m-2">
+                        <div class="col-auto">
+                            <label for="Acurrentpassword" class="col-form-label">Pincodes:</label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Areas</option>
+                                <option value="1">Maninagar</option>
+                                <option value="2">Pangarapole</option>
+                                <option value="3">Paldi</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
         </div>
 
+        
 </body>
 <script>
 
@@ -162,6 +210,18 @@
     }
 
     function update() {
+        if(document.getElementById('admininfo').style.display == "none"){
+            document.getElementById('admininfo').style.display="block";
+        }
+        if(document.getElementById('adminpassword').style.display == "block"){
+            document.getElementById('adminpassword').style.display="none";
+        }
+        var loc=document.getElementById('location');
+        if(loc.style.display !="none"){
+            loc.style.display="none";
+        }
+
+
         document.getElementById('adminupdate').style.display = "block";
         document.getElementById('Amail').removeAttribute('readonly');
         document.getElementById('Aphoneno').removeAttribute('readonly');
@@ -171,10 +231,28 @@
     }
 
     function updatepassword() {
-        document.getElementById('admininfo').style.display = "none";
-        document.getElementById('adminpassword').style.display = "block";
+        var adinfo=document.getElementById('admininfo');
+        if(adinfo.style.display != "none")
+            adinfo.style.display = "none";
+
+        var adpass=document.getElementById('adminpassword');
+        if(adpass.style.display != "block")
+            adpass.style.display = "block";
+
+        var loc=document.getElementById('location');
+        if(loc.style.display !="none"){
+            loc.style.display="none";
+        }
+
     }
 
+    function locationpart() {
+        var about=document.getElementById('admininfo');
+        about.style.display="none";
+        var loc=document.getElementById('location');
+        loc.style.display="block";
+        console.log("in location");
+    }
 </script>
 
 </html>
