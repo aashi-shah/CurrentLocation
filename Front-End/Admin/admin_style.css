@@ -4,5 +4,11 @@
 }
 
 .tcolor{
-    color: white;
+    color: black;
+    background-color: lightgray;
+}
+
+.user{
+    /* color: rgb(103, 176, 209); */
+    color: grey;
 }
